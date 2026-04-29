@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  discord-bot:
+    build: .
+    container_name: ggtcg-bot
+    restart: always
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./ggcoins.db:/app/ggcoins.db
+    environment:
+      - BOT_TOKEN=${BOT_TOKEN}
+      - CLAVE_SECRETA=${CLAVE_SECRETA}
+      - CANAL_EVENTOS_ID=${CANAL_EVENTOS_ID}
+      - CANAL_BIENVENIDA_ID=${CANAL_BIENVENIDA_ID}
+      - CANAL_PEDIDOS_ID=${CANAL_PEDIDOS_ID}
+      - CANAL_GAMBLING_ID=${CANAL_GAMBLING_ID}
+      - MIEMBROS_A_NOTIFICAR=${MIEMBROS_A_NOTIFICAR}
+      - ROL_ADMIN=${ROL_ADMIN}
